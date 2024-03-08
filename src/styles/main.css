@@ -1,0 +1,63 @@
+.flexed--center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0px;
+}
+
+.container {
+    margin-bottom: 16px;
+}
+
+/* Блоки */
+
+.active--choise {
+    border-radius: 6px;
+    outline: 1px solid rgb(184, 184, 184);
+}
+
+.choise {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.choise img {
+    height: 100px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.choise p {
+    text-align: center;
+}
+
+
+/* Кнопки */
+
+.btn--submit {
+    border: 0;
+    border-radius: 6px;
+    padding: 14px 22px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+}
+
+.btn--submit:hover {
+    background-color: rgba(0, 128, 0, 0.781);
+}
+
+.btn--submit:active {
+    background-color: rgba(0, 97, 0, 0.781)
+}
+
+/* Инпуты */
+
+.input--number {
+    border-radius: 6px;
+    border: 1px solid rgb(184, 184, 184);
+    padding: 5px;
+    width: auto;
+}
