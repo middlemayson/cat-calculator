@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { calculatePE, calculateEnergyRequirement, calculateDailyFoodRequirement } from "../../scripts/calculatorFoodCat";
-import polos from '../../img/polos.jpg';
-import black from '../../img/black.jpg';
+import cat from '../../img/elements/cat.png';
+import catSleep from '../../img/elements/sleep.png';
+import catPlaying from '../../img/elements/playing.png';
 import '../../styles/main.css';
 
 const CalculatorFoodCat = () => {
@@ -52,9 +53,9 @@ const CalculatorFoodCat = () => {
                 <h1>Расчет суточной нормы для кошек</h1>
                 <div className="container">
                     <label>
-                        Вес кошки (кг):
-                        <input className="input--number" type="number" value={weight} onChange={handleWeightChange} min="0" max="30" />
-                        {warning && <p style={{ color: 'red' }}>Введите вес животного</p>}
+                        Вес кошки:
+                        <input className="input--number" type="number" value={weight} onChange={handleWeightChange} min="0" max="30" step="0.5" /> кг
+                        {warning && <p className="warning">Введите вес животного</p>}
                     </label>
                 </div>
                 <div className="container">
@@ -62,11 +63,11 @@ const CalculatorFoodCat = () => {
                         <span>Уровень активности:</span>
                         <div className="flexed--center">
                             <div onClick={() => handleActivityLevelChange('спокойная')} className={activityLevel === 'спокойная' ? 'active--choise choise' : 'choise'}>
-                                <img src={black} alt="Спокойная активность"/>
+                                <img src={catSleep} alt="Спокойная активность"/>
                                 <p>Спокойная</p>
                             </div>
                             <div onClick={() => handleActivityLevelChange('активная')} className={activityLevel === 'активная' ? 'active--choise choise' : 'choise'}>
-                                <img src={polos} alt="Активная активность"/>
+                                <img src={catPlaying} alt="Активная активность"/>
                                 <p>Активная</p>
                             </div>
                         </div>
@@ -76,16 +77,16 @@ const CalculatorFoodCat = () => {
                     <span>Возраст кошки:</span>
                     <div className="flexed--center">
                         <div onClick={() => handleAgeChange('котенок до 6 месяцев')} className={age === 'котенок до 6 месяцев' ? 'active--choise choise' : 'choise'}>
-                            <img src="/path/to/kitten1.png" alt="Котенок до 6 месяцев" />
+                            <img className="smallCat" src={cat} alt="Котенок до 6 месяцев" />
                             <p>Котенок до 6 месяцев</p>
                         </div>
                         <div onClick={() => handleAgeChange('котенок после 6 месяцев')} className={age === 'котенок после 6 месяцев' ? 'active--choise choise' : 'choise'}>
-                            <img src="/path/to/kitten2.png" alt="Котенок после 6 месяцев" />
+                            <img className="middleCat" src={cat} alt="Котенок после 6 месяцев" />
                             <p>Котенок после 6 месяцев</p>
                         </div>
                         <div onClick={() => handleAgeChange('взрослая')} className={age === 'взрослая' ? 'active--choise choise' : 'choise'}>
-                            <img src="/path/to/adult.png" alt="Взрослая кошка" />
-                            <p>Взрослая</p>
+                            <img className="bigCat" src={cat} alt="Взрослая кошка" />
+                            <p>Взрослая кошка</p>
                         </div>
                     </div>
                 </div>
@@ -95,9 +96,9 @@ const CalculatorFoodCat = () => {
             {result && (
                 <div>
                     <h2>Результаты расчета:</h2>
-                    <p>Поддерживающая энергия (ПЕ): {result.pe} ккал/день</p>
-                    <p>Индивидуальная потребность в энергии: {result.energyRequirement} ккал/день</p>
-                    <p>Суточная норма корма: {result.dailyFoodRequirement} грамм</p>
+                    <p>Поддерживающая энергия (ПЕ): <b>{result.pe} ккал/день</b></p>
+                    <p>Индивидуальная потребность в энергии: <b>{result.energyRequirement} ккал/день</b></p>
+                    <p>Суточная норма корма: <b>{result.dailyFoodRequirement} грамм</b></p>
                 </div>
             )}
         </section>

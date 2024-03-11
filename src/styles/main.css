@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:wght@500&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --grayBorder: #d4d4d4;
+    --grayDarkBorder: #7a7a7a;
+    --green: #169e30;
+    --greenBorder: #83b18b;
+    --greenLight: #d1efd7;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
 .flexed--center {
     display: flex;
     align-items: center;
@@ -9,21 +25,60 @@
     margin-bottom: 16px;
 }
 
-/* Блоки */
 
-.active--choise {
-    border-radius: 6px;
-    outline: 1px solid rgb(184, 184, 184);
+/* Системное */
+
+body {
+    margin: 0 16px;
 }
+
+.warning {
+    color: #9e1616;
+    background-color: #efd1d1;
+    border: 1px solid #b18383;
+    padding: 5px;
+    width: fit-content;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Блоки */
 
 .choise {
     cursor: pointer;
-    box-sizing: border-box;
-    display: inline-block;
+    outline: 1px solid var(--grayBorder);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8px;
+    min-width: 100px;
+    min-height: 140px;
+}
+
+.choise:hover {
+    opacity: .7;
+}
+
+.active--choise {
+    background-color: var(--greenLight);
+    outline: 1px solid var(--greenBorder);
+}
+
+.smallCat {
+    height: 44px;
+}
+
+.middleCat {
+    height: 54px;
+}
+
+.bigCat {
+    height: 64px;
 }
 
 .choise img {
-    height: 100px;
     aspect-ratio: 1/1;
     object-fit: cover;
     padding: 10px;
@@ -31,33 +86,39 @@
 
 .choise p {
     text-align: center;
+    font-size: 10pt;
 }
-
 
 /* Кнопки */
 
 .btn--submit {
+    width: 100%;
     border: 0;
     border-radius: 6px;
     padding: 14px 22px;
     cursor: pointer;
-    background-color: green;
+    background-color: var(--green);
     color: white;
 }
 
 .btn--submit:hover {
-    background-color: rgba(0, 128, 0, 0.781);
+    opacity: .8;
 }
 
 .btn--submit:active {
-    background-color: rgba(0, 97, 0, 0.781)
+    opacity: .6;
 }
 
 /* Инпуты */
 
 .input--number {
     border-radius: 6px;
-    border: 1px solid rgb(184, 184, 184);
+    border: 1px solid var(--grayBorder);
     padding: 5px;
     width: auto;
+    margin-left: 6px;
+}
+
+.input--number:active {
+    border: 1px solid var(--grayDarkBorder);
 }
